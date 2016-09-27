@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/layout.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListLoanapllicationTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="content">
+            <h:form id="LoanapllicationListForm">
+                <p:panel header="#{bundle.ListLoanapllicationTitle}">
+                    <p:dataTable id="datalist" value="#{loanapllicationController.items}" var="item"
+                                 selectionMode="single" selection="#{loanapllicationController.selected}"
+                                 paginator="true"
+                                 rowKey="#{item.loanid}"
+                                 rows="10"
+                                 rowsPerPageTemplate="10,20,30,40,50"
+                                 >
+
+                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
+                                   
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLoanapllicationTitle_referenceno}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.referenceno}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLoanapllicationTitle_email}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.email}"/>
+                        </p:column>                                                
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLoanapllicationTitle_loanAmount}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.loanAmount}"/>
+                        </p:column>                        
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLoanapllicationTitle_Name}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.otherNames} #{item.otherNames}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLoanapllicationTitle_phone}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.phone}"/>
+                        </p:column>                       
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLoanapllicationTitle_purpose}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.purpose}"/>
+                        </p:column>                        
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLoanapllicationTitle_requestdate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.requestdate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                            </h:outputText>
+                        </p:column>                                                                       
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListLoanapllicationTitle_tenor}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tenor}"/>
+                        </p:column>
+                      
+                        <f:facet name="footer">
+                            <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{loanapllicationController.prepareCreate}" update=":LoanapllicationCreateForm" oncomplete="PF('LoanapllicationCreateDialog').show()"/>
+                            <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{bundle.View}" update=":LoanapllicationViewForm" oncomplete="PF('LoanapllicationViewDialog').show()" disabled="#{empty loanapllicationController.selected}"/>
+                            <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{bundle.Edit}" update=":LoanapllicationEditForm" oncomplete="PF('LoanapllicationEditDialog').show()" disabled="#{empty loanapllicationController.selected}"/>
+                            <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{loanapllicationController.destroy}" update=":growl,datalist" disabled="#{empty loanapllicationController.selected}"/>
+                        </f:facet>
+                    </p:dataTable>
+                </p:panel>
+            </h:form>
+
+            <ui:include src="Create.xhtml"/>
+            <ui:include src="Edit.xhtml"/>
+            <ui:include src="View.xhtml"/>
+        </ui:define>
+    </ui:composition>
+
+</html>

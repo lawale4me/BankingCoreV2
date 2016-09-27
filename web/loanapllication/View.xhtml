@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="LoanapllicationViewDlg" widgetVar="LoanapllicationViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewLoanapllicationTitle}">
+            <h:form id="LoanapllicationViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{loanapllicationController.selected != null}">
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_loanid}"/>
+                        <h:outputText value="#{loanapllicationController.selected.loanid}" title="#{bundle.ViewLoanapllicationTitle_loanid}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_address}"/>
+                        <h:outputText value="#{loanapllicationController.selected.address}" title="#{bundle.ViewLoanapllicationTitle_address}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_annualSalary}"/>
+                        <h:outputText value="#{loanapllicationController.selected.annualSalary}" title="#{bundle.ViewLoanapllicationTitle_annualSalary}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_approvedby}"/>
+                        <h:outputText value="#{loanapllicationController.selected.approvedby}" title="#{bundle.ViewLoanapllicationTitle_approvedby}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_bankAccountNo}"/>
+                        <h:outputText value="#{loanapllicationController.selected.bankAccountNo}" title="#{bundle.ViewLoanapllicationTitle_bankAccountNo}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_bankName}"/>
+                        <h:outputText value="#{loanapllicationController.selected.bankName}" title="#{bundle.ViewLoanapllicationTitle_bankName}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_bankStatement}"/>
+                        <h:outputText value="#{loanapllicationController.selected.bankStatement}" title="#{bundle.ViewLoanapllicationTitle_bankStatement}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_channel}"/>
+                        <h:outputText value="#{loanapllicationController.selected.channel}" title="#{bundle.ViewLoanapllicationTitle_channel}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_deniedby}"/>
+                        <h:outputText value="#{loanapllicationController.selected.deniedby}" title="#{bundle.ViewLoanapllicationTitle_deniedby}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_dept}"/>
+                        <h:outputText value="#{loanapllicationController.selected.dept}" title="#{bundle.ViewLoanapllicationTitle_dept}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_dob}"/>
+                        <h:outputText value="#{loanapllicationController.selected.dob}" title="#{bundle.ViewLoanapllicationTitle_dob}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_email}"/>
+                        <h:outputText value="#{loanapllicationController.selected.email}" title="#{bundle.ViewLoanapllicationTitle_email}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_empNo}"/>
+                        <h:outputText value="#{loanapllicationController.selected.empNo}" title="#{bundle.ViewLoanapllicationTitle_empNo}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_employer}"/>
+                        <h:outputText value="#{loanapllicationController.selected.employer}" title="#{bundle.ViewLoanapllicationTitle_employer}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_employerAddress}"/>
+                        <h:outputText value="#{loanapllicationController.selected.employerAddress}" title="#{bundle.ViewLoanapllicationTitle_employerAddress}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_employerPhone}"/>
+                        <h:outputText value="#{loanapllicationController.selected.employerPhone}" title="#{bundle.ViewLoanapllicationTitle_employerPhone}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_enddate}"/>
+                        <h:outputText value="#{loanapllicationController.selected.enddate}" title="#{bundle.ViewLoanapllicationTitle_enddate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_grade}"/>
+                        <h:outputText value="#{loanapllicationController.selected.grade}" title="#{bundle.ViewLoanapllicationTitle_grade}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_idCard}"/>
+                        <h:outputText value="#{loanapllicationController.selected.idCard}" title="#{bundle.ViewLoanapllicationTitle_idCard}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_jobDesc}"/>
+                        <h:outputText value="#{loanapllicationController.selected.jobDesc}" title="#{bundle.ViewLoanapllicationTitle_jobDesc}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_kinName}"/>
+                        <h:outputText value="#{loanapllicationController.selected.kinName}" title="#{bundle.ViewLoanapllicationTitle_kinName}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_kinPhone}"/>
+                        <h:outputText value="#{loanapllicationController.selected.kinPhone}" title="#{bundle.ViewLoanapllicationTitle_kinPhone}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_kinType}"/>
+                        <h:outputText value="#{loanapllicationController.selected.kinType}" title="#{bundle.ViewLoanapllicationTitle_kinType}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_kinWork}"/>
+                        <h:outputText value="#{loanapllicationController.selected.kinWork}" title="#{bundle.ViewLoanapllicationTitle_kinWork}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_lengthOfService}"/>
+                        <h:outputText value="#{loanapllicationController.selected.lengthOfService}" title="#{bundle.ViewLoanapllicationTitle_lengthOfService}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_loanAmount}"/>
+                        <h:outputText value="#{loanapllicationController.selected.loanAmount}" title="#{bundle.ViewLoanapllicationTitle_loanAmount}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_loandate}"/>
+                        <h:outputText value="#{loanapllicationController.selected.loandate}" title="#{bundle.ViewLoanapllicationTitle_loandate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_officeEmail}"/>
+                        <h:outputText value="#{loanapllicationController.selected.officeEmail}" title="#{bundle.ViewLoanapllicationTitle_officeEmail}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_otherNames}"/>
+                        <h:outputText value="#{loanapllicationController.selected.otherNames}" title="#{bundle.ViewLoanapllicationTitle_otherNames}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_payDay}"/>
+                        <h:outputText value="#{loanapllicationController.selected.payDay}" title="#{bundle.ViewLoanapllicationTitle_payDay}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_phone}"/>
+                        <h:outputText value="#{loanapllicationController.selected.phone}" title="#{bundle.ViewLoanapllicationTitle_phone}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_prodCode}"/>
+                        <h:outputText value="#{loanapllicationController.selected.prodCode}" title="#{bundle.ViewLoanapllicationTitle_prodCode}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_purpose}"/>
+                        <h:outputText value="#{loanapllicationController.selected.purpose}" title="#{bundle.ViewLoanapllicationTitle_purpose}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_referenceno}"/>
+                        <h:outputText value="#{loanapllicationController.selected.referenceno}" title="#{bundle.ViewLoanapllicationTitle_referenceno}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_requestdate}"/>
+                        <h:outputText value="#{loanapllicationController.selected.requestdate}" title="#{bundle.ViewLoanapllicationTitle_requestdate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_signature}"/>
+                        <h:outputText value="#{loanapllicationController.selected.signature}" title="#{bundle.ViewLoanapllicationTitle_signature}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_status}"/>
+                        <h:outputText value="#{loanapllicationController.selected.status}" title="#{bundle.ViewLoanapllicationTitle_status}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_surname}"/>
+                        <h:outputText value="#{loanapllicationController.selected.surname}" title="#{bundle.ViewLoanapllicationTitle_surname}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_tenor}"/>
+                        <h:outputText value="#{loanapllicationController.selected.tenor}" title="#{bundle.ViewLoanapllicationTitle_tenor}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_title}"/>
+                        <h:outputText value="#{loanapllicationController.selected.title}" title="#{bundle.ViewLoanapllicationTitle_title}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_totalExistingLoan}"/>
+                        <h:outputText value="#{loanapllicationController.selected.totalExistingLoan}" title="#{bundle.ViewLoanapllicationTitle_totalExistingLoan}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_authorizedBy}"/>
+                        <h:outputText value="#{loanapllicationController.selected.authorizedBy}" title="#{bundle.ViewLoanapllicationTitle_authorizedBy}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_comment}"/>
+                        <h:outputText value="#{loanapllicationController.selected.comment}" title="#{bundle.ViewLoanapllicationTitle_comment}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_disbursedBy}"/>
+                        <h:outputText value="#{loanapllicationController.selected.disbursedBy}" title="#{bundle.ViewLoanapllicationTitle_disbursedBy}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_loanType}"/>
+                        <h:outputText value="#{loanapllicationController.selected.loanType}" title="#{bundle.ViewLoanapllicationTitle_loanType}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_approvedAmount}"/>
+                        <h:outputText value="#{loanapllicationController.selected.approvedAmount}" title="#{bundle.ViewLoanapllicationTitle_approvedAmount}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_lastTurnover}"/>
+                        <h:outputText value="#{loanapllicationController.selected.lastTurnover}" title="#{bundle.ViewLoanapllicationTitle_lastTurnover}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_businessNature}"/>
+                        <h:outputText value="#{loanapllicationController.selected.businessNature}" title="#{bundle.ViewLoanapllicationTitle_businessNature}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_businessYr}"/>
+                        <h:outputText value="#{loanapllicationController.selected.businessYr}" title="#{bundle.ViewLoanapllicationTitle_businessYr}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_tenancyInvoice}"/>
+                        <h:outputText value="#{loanapllicationController.selected.tenancyInvoice}" title="#{bundle.ViewLoanapllicationTitle_tenancyInvoice}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_landlordName}"/>
+                        <h:outputText value="#{loanapllicationController.selected.landlordName}" title="#{bundle.ViewLoanapllicationTitle_landlordName}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_propertyAddress}"/>
+                        <h:outputText value="#{loanapllicationController.selected.propertyAddress}" title="#{bundle.ViewLoanapllicationTitle_propertyAddress}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_landlordBankName}"/>
+                        <h:outputText value="#{loanapllicationController.selected.landlordBankName}" title="#{bundle.ViewLoanapllicationTitle_landlordBankName}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_landlordAccountNo}"/>
+                        <h:outputText value="#{loanapllicationController.selected.landlordAccountNo}" title="#{bundle.ViewLoanapllicationTitle_landlordAccountNo}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_childName}"/>
+                        <h:outputText value="#{loanapllicationController.selected.childName}" title="#{bundle.ViewLoanapllicationTitle_childName}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_childSchool}"/>
+                        <h:outputText value="#{loanapllicationController.selected.childSchool}" title="#{bundle.ViewLoanapllicationTitle_childSchool}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_schoolBankName}"/>
+                        <h:outputText value="#{loanapllicationController.selected.schoolBankName}" title="#{bundle.ViewLoanapllicationTitle_schoolBankName}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_schoolAccountNo}"/>
+                        <h:outputText value="#{loanapllicationController.selected.schoolAccountNo}" title="#{bundle.ViewLoanapllicationTitle_schoolAccountNo}"/>
+                        <h:outputText value="#{bundle.ViewLoanapllicationLabel_schoolfeeInvoice}"/>
+                        <h:outputText value="#{loanapllicationController.selected.schoolfeeInvoice}" title="#{bundle.ViewLoanapllicationTitle_schoolfeeInvoice}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="LoanapllicationViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

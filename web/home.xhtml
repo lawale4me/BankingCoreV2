@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<ui:composition template="layout.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                >
+    
+      <ui:define name="title">HOME PAGE</ui:define>
+    <ui:define name="content">                             
+        
+             <h:form id="form">                                                   
+                 
+                 <p:dataTable var="loan" value="#{loanMBean.loans}" widgetVar="loansTable"
+                              selection="#{loanMBean.selectedLoan}" selectionMode="single" 
+                              rowKey="#{loan.loanid}" rows="10"  filteredValue="#{loanMBean.filteredLoans}" >                                                                                                         
+                     
+                     <p:ajax event="rowSelect"  /> 
+                            <f:facet name="header">
+                                Loan Requests
+                            </f:facet>
+                     
+                     <p:column filterBy="#{loan.referenceno}">
+                                <f:facet name="header">
+                                    <h:outputText value="Reference No"  />
+                                </f:facet>
+                                    <h:outputText value="#{loan.referenceno}"   />
+                            </p:column>
+                     
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Request Date" />
+                                </f:facet>
+                                <h:outputText value="#{loan.requestdate}" />
+                            </p:column>
+                     
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Full Name" />
+                                </f:facet>
+                                <h:outputText value="#{loan.surname} #{loan.otherNames}" />
+                            </p:column>
+
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Tenor" />
+                                </f:facet>
+                                <h:outputText value="#{loan.tenor}" />
+                            </p:column>
+
+                            <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Loan Amount" />
+                                </f:facet>
+                                <h:outputText value="#{loan.loanAmount}" />
+                            </p:column>
+
+                            <f:facet name="footer">
+                                <p:commandButton id="footercmbtn" value="View" image="ui-icon ui-icon-search"                                                 
+                                                 update=":form:casesDetail"    oncomplete="PF('casesDialog').show()"/>                   
+                                <p:commandButton id="footercmbtn1" value="Approve" image="ui-icon ui-icon-search"                                                 
+                                                 update=":form:approveLoan"     oncomplete="PF('approveDialog').show()"/>  
+                                <p:commandButton id="footercmbtn2" value="Cancel" image="ui-icon ui-icon-search"                                                 
+                                                 update=":form:cancelLoan"   oncomplete="PF('cancelDialog').show()"/>  
+                            </f:facet>
+
+                        </p:dataTable>
+
+                        <p:dialog header="Loan Details" widgetVar="casesDialog" resizable="false"
+                                  width="500" showEffect="clip" hideEffect="fold">
+                                                  
+
+                            <h:panelGrid id="casesDetail" columns="2" cellpadding="4">
+                                <f:facet name="header">
+                                    
+                                </f:facet>
+                                <h:outputText value="Email:" />
+                                <h:outputText value="#{loanMBean.selectedLoan.email}" />
+
+                                <h:outputText value="Annual Salary:" />
+                                <h:outputText value="#{loanMBean.selectedLoan.annualSalary}" />
+                                
+                                <h:outputText value="employer:" />
+                                <h:outputText value="#{loanMBean.selectedLoan.employer}" />
+                                
+                                <h:outputText value="EmployerAddress:" />
+                                <h:outputText value="#{loanMBean.selectedLoan.employerAddress}" />
+                                
+                                <h:outputText value="Grade:" />
+                                <h:outputText value="#{loanMBean.selectedLoan.grade}" />
+                                
+                                <h:outputText value="Office Email:" />
+                                <h:outputText value="#{loanMBean.selectedLoan.officeEmail}" />
+                                
+                                <h:outputText value="Bank Name:" />
+                                <h:outputText value="#{loanMBean.selectedLoan.bankName}" />
+                                
+                                <h:outputText value="Bank Account No:" />
+                                <h:outputText value="#{loanMBean.selectedLoan.bankAccountNo}" />
+                                
+                                <h:outputText value="Total Existing Loan:" />
+                                <h:outputText value="#{loanMBean.selectedLoan.totalExistingLoan}" />
+                                
+                                <h:outputText value="Date of Birth:" />
+                                <h:outputText value="#{loanMBean.selectedLoan.dob}" />
+                                
+                                <h:outputText value="Department" />
+                                <h:outputText value="#{loanMBean.selectedLoan.dept}" />
+                                                                
+                                <h:button id="lnkHidden" value=" View ID card" outcome="viewresource">
+                                    <f:param name="idCardURL" value="#{loanMBean.selectedLoan.idCard}" />
+                                </h:button>
+                                
+                                
+                            </h:panelGrid>
+                        </p:dialog>
+                    
+          <!--APPROVE DIALOG-->
+          <p:dialog header="Approve" widgetVar="approveDialog" resizable="false"
+                    width="500" showEffect="clip" hideEffect="fold"  modal="false" appendTo="@(body)">                                                                
+
+                            <h:panelGrid id="approveLoan" columns="2" cellpadding="4">
+                                <f:facet name="header">                                    
+                                </f:facet>
+                                
+                                <h:outputText value="FULLNAME:" />
+                                <h:outputText value="#{loanMBean.selectedLoan.surname} #{loanMBean.selectedLoan.otherNames}" />
+                                
+                                <h:outputText value="ReferenceNo:" />
+                                <h:outputText value="#{loanMBean.selectedLoan.referenceno}" />
+                                
+                                <h:outputText value="approvedAmount:" />
+                                <h:inputText id="approvedAmount" value="#{loanMBean.selectedLoan.approvedAmount}" label="approvedAmount" required="true" style="width:200px; height: 15px" />
+                                
+                                <h:outputText value="Comment:" />
+                                <p:inputText id="comment" value="#{loanMBean.selectedLoan.comment}" label="Comment" required="true" style="width:200px; height: 25px" />                                                                                                                                                                                                                                
+                                
+                                <center>                         
+                                    <p:commandButton value="Approve" ajax="true"   
+                                                     oncomplete="#{loanMBean.updateLoan(LoanStatus.APPROVED.ordinal())}">
+                                    <f:ajax execute="@form" render="@form" />
+                                    </p:commandButton>
+                                </center>
+                                
+                            </h:panelGrid>
+                  
+                        </p:dialog>
+        
+            <!--CANCEL DIALOG-->
+                      <p:dialog header="Cancel Loan" widgetVar="cancelDialog" resizable="false"
+                                  width="500" showEffect="clip" hideEffect="fold">
+                                                                            
+                            <h:panelGrid id="cancelLoan" columns="2" cellpadding="4">
+                                <f:facet name="header">
+                                    
+                                </f:facet>
+                                <h:outputText value="Email:" />
+                                <h:outputText value="#{loanMBean.selectedLoan.email}" />
+
+                                <h:outputText value="Annual Salary:" />
+                                <h:outputText value="#{loanMBean.selectedLoan.annualSalary}" />
+                                
+                                <h:outputText value="employer:" />
+                                <h:outputText value="#{loanMBean.selectedLoan.employer}" />
+                                
+                                <h:outputText value="EmployerAddress:" />
+                                <h:outputText value="#{loanMBean.selectedLoan.employerAddress}" />
+                                
+                                <h:outputText value="Grade:" />
+                                <h:outputText value="#{loanMBean.selectedLoan.grade}" />
+                                
+                                <h:outputText value="Office Email:" />
+                                <h:outputText value="#{loanMBean.selectedLoan.officeEmail}" />
+                                
+                                <h:outputText value="Bank Name:" />
+                                <h:outputText value="#{loanMBean.selectedLoan.bankName}" />
+                                
+                                <h:outputText value="Bank Account No:" />
+                                <h:outputText value="#{loanMBean.selectedLoan.bankAccountNo}" />
+                                
+                                <h:outputText value="Total Existing Loan:" />
+                                <h:outputText value="#{loanMBean.selectedLoan.totalExistingLoan}" />
+                                
+                                <h:outputText value="Date of Birth:" />
+                                <h:outputText value="#{loanMBean.selectedLoan.dob}" />
+                                
+                                <h:outputText value="Department" />
+                                <h:outputText value="#{loanMBean.selectedLoan.dept}" />
+                                                                
+                                <h:button id="lnkHidden2" value=" View ID card" outcome="viewresource">
+                                    <f:param name="idCardURL" value="#{loanMBean.selectedLoan.idCard}" />
+                                </h:button>
+                                                                
+                            </h:panelGrid>
+                              
+                        </p:dialog>
+                 
+      
+            </h:form>
+
+                           
+ </ui:define>
+</ui:composition>

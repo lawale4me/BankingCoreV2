@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="LoanapllicationCreateDlg" widgetVar="LoanapllicationCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateLoanapllicationTitle}">
+            <h:form id="LoanapllicationCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{loanapllicationController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_loanid}" for="loanid" />
+                        <p:inputText id="loanid" value="#{loanapllicationController.selected.loanid}" title="#{bundle.CreateLoanapllicationTitle_loanid}" required="true" requiredMessage="#{bundle.CreateLoanapllicationRequiredMessage_loanid}"/>
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_address}" for="address" />
+                        <p:inputText id="address" value="#{loanapllicationController.selected.address}" title="#{bundle.CreateLoanapllicationTitle_address}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_annualSalary}" for="annualSalary" />
+                        <p:inputText id="annualSalary" value="#{loanapllicationController.selected.annualSalary}" title="#{bundle.CreateLoanapllicationTitle_annualSalary}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_approvedby}" for="approvedby" />
+                        <p:inputText id="approvedby" value="#{loanapllicationController.selected.approvedby}" title="#{bundle.CreateLoanapllicationTitle_approvedby}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_bankAccountNo}" for="bankAccountNo" />
+                        <p:inputText id="bankAccountNo" value="#{loanapllicationController.selected.bankAccountNo}" title="#{bundle.CreateLoanapllicationTitle_bankAccountNo}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_bankName}" for="bankName" />
+                        <p:inputText id="bankName" value="#{loanapllicationController.selected.bankName}" title="#{bundle.CreateLoanapllicationTitle_bankName}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_bankStatement}" for="bankStatement" />
+                        <p:inputText id="bankStatement" value="#{loanapllicationController.selected.bankStatement}" title="#{bundle.CreateLoanapllicationTitle_bankStatement}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_channel}" for="channel" />
+                        <p:inputText id="channel" value="#{loanapllicationController.selected.channel}" title="#{bundle.CreateLoanapllicationTitle_channel}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_deniedby}" for="deniedby" />
+                        <p:inputText id="deniedby" value="#{loanapllicationController.selected.deniedby}" title="#{bundle.CreateLoanapllicationTitle_deniedby}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_dept}" for="dept" />
+                        <p:inputText id="dept" value="#{loanapllicationController.selected.dept}" title="#{bundle.CreateLoanapllicationTitle_dept}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_dob}" for="dob" />
+                        <p:inputText id="dob" value="#{loanapllicationController.selected.dob}" title="#{bundle.CreateLoanapllicationTitle_dob}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{loanapllicationController.selected.email}" title="#{bundle.CreateLoanapllicationTitle_email}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_empNo}" for="empNo" />
+                        <p:inputText id="empNo" value="#{loanapllicationController.selected.empNo}" title="#{bundle.CreateLoanapllicationTitle_empNo}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_employer}" for="employer" />
+                        <p:inputText id="employer" value="#{loanapllicationController.selected.employer}" title="#{bundle.CreateLoanapllicationTitle_employer}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_employerAddress}" for="employerAddress" />
+                        <p:inputText id="employerAddress" value="#{loanapllicationController.selected.employerAddress}" title="#{bundle.CreateLoanapllicationTitle_employerAddress}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_employerPhone}" for="employerPhone" />
+                        <p:inputText id="employerPhone" value="#{loanapllicationController.selected.employerPhone}" title="#{bundle.CreateLoanapllicationTitle_employerPhone}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_enddate}" for="enddate" />
+                        <p:calendar id="enddate" pattern="MM/dd/yyyy HH:mm:ss" value="#{loanapllicationController.selected.enddate}" title="#{bundle.EditLoanapllicationTitle_enddate}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_grade}" for="grade" />
+                        <p:inputText id="grade" value="#{loanapllicationController.selected.grade}" title="#{bundle.CreateLoanapllicationTitle_grade}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_idCard}" for="idCard" />
+                        <p:inputText id="idCard" value="#{loanapllicationController.selected.idCard}" title="#{bundle.CreateLoanapllicationTitle_idCard}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_jobDesc}" for="jobDesc" />
+                        <p:inputText id="jobDesc" value="#{loanapllicationController.selected.jobDesc}" title="#{bundle.CreateLoanapllicationTitle_jobDesc}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_kinName}" for="kinName" />
+                        <p:inputText id="kinName" value="#{loanapllicationController.selected.kinName}" title="#{bundle.CreateLoanapllicationTitle_kinName}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_kinPhone}" for="kinPhone" />
+                        <p:inputText id="kinPhone" value="#{loanapllicationController.selected.kinPhone}" title="#{bundle.CreateLoanapllicationTitle_kinPhone}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_kinType}" for="kinType" />
+                        <p:inputText id="kinType" value="#{loanapllicationController.selected.kinType}" title="#{bundle.CreateLoanapllicationTitle_kinType}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_kinWork}" for="kinWork" />
+                        <p:inputText id="kinWork" value="#{loanapllicationController.selected.kinWork}" title="#{bundle.CreateLoanapllicationTitle_kinWork}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_lengthOfService}" for="lengthOfService" />
+                        <p:inputText id="lengthOfService" value="#{loanapllicationController.selected.lengthOfService}" title="#{bundle.CreateLoanapllicationTitle_lengthOfService}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_loanAmount}" for="loanAmount" />
+                        <p:inputText id="loanAmount" value="#{loanapllicationController.selected.loanAmount}" title="#{bundle.CreateLoanapllicationTitle_loanAmount}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_loandate}" for="loandate" />
+                        <p:calendar id="loandate" pattern="MM/dd/yyyy HH:mm:ss" value="#{loanapllicationController.selected.loandate}" title="#{bundle.EditLoanapllicationTitle_loandate}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_officeEmail}" for="officeEmail" />
+                        <p:inputText id="officeEmail" value="#{loanapllicationController.selected.officeEmail}" title="#{bundle.CreateLoanapllicationTitle_officeEmail}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_otherNames}" for="otherNames" />
+                        <p:inputText id="otherNames" value="#{loanapllicationController.selected.otherNames}" title="#{bundle.CreateLoanapllicationTitle_otherNames}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_payDay}" for="payDay" />
+                        <p:inputText id="payDay" value="#{loanapllicationController.selected.payDay}" title="#{bundle.CreateLoanapllicationTitle_payDay}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_phone}" for="phone" />
+                        <p:inputText id="phone" value="#{loanapllicationController.selected.phone}" title="#{bundle.CreateLoanapllicationTitle_phone}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_prodCode}" for="prodCode" />
+                        <p:inputText id="prodCode" value="#{loanapllicationController.selected.prodCode}" title="#{bundle.CreateLoanapllicationTitle_prodCode}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_purpose}" for="purpose" />
+                        <p:inputText id="purpose" value="#{loanapllicationController.selected.purpose}" title="#{bundle.CreateLoanapllicationTitle_purpose}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_referenceno}" for="referenceno" />
+                        <p:inputText id="referenceno" value="#{loanapllicationController.selected.referenceno}" title="#{bundle.CreateLoanapllicationTitle_referenceno}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_requestdate}" for="requestdate" />
+                        <p:calendar id="requestdate" pattern="MM/dd/yyyy HH:mm:ss" value="#{loanapllicationController.selected.requestdate}" title="#{bundle.EditLoanapllicationTitle_requestdate}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_signature}" for="signature" />
+                        <p:inputText id="signature" value="#{loanapllicationController.selected.signature}" title="#{bundle.CreateLoanapllicationTitle_signature}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_status}" for="status" />
+                        <p:inputText id="status" value="#{loanapllicationController.selected.status}" title="#{bundle.CreateLoanapllicationTitle_status}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_surname}" for="surname" />
+                        <p:inputText id="surname" value="#{loanapllicationController.selected.surname}" title="#{bundle.CreateLoanapllicationTitle_surname}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_tenor}" for="tenor" />
+                        <p:inputText id="tenor" value="#{loanapllicationController.selected.tenor}" title="#{bundle.CreateLoanapllicationTitle_tenor}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_title}" for="title" />
+                        <p:inputText id="title" value="#{loanapllicationController.selected.title}" title="#{bundle.CreateLoanapllicationTitle_title}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_totalExistingLoan}" for="totalExistingLoan" />
+                        <p:inputText id="totalExistingLoan" value="#{loanapllicationController.selected.totalExistingLoan}" title="#{bundle.CreateLoanapllicationTitle_totalExistingLoan}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_authorizedBy}" for="authorizedBy" />
+                        <p:inputText id="authorizedBy" value="#{loanapllicationController.selected.authorizedBy}" title="#{bundle.CreateLoanapllicationTitle_authorizedBy}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_comment}" for="comment" />
+                        <p:inputText id="comment" value="#{loanapllicationController.selected.comment}" title="#{bundle.CreateLoanapllicationTitle_comment}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_disbursedBy}" for="disbursedBy" />
+                        <p:inputText id="disbursedBy" value="#{loanapllicationController.selected.disbursedBy}" title="#{bundle.CreateLoanapllicationTitle_disbursedBy}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_loanType}" for="loanType" />
+                        <p:inputText id="loanType" value="#{loanapllicationController.selected.loanType}" title="#{bundle.CreateLoanapllicationTitle_loanType}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_approvedAmount}" for="approvedAmount" />
+                        <p:inputText id="approvedAmount" value="#{loanapllicationController.selected.approvedAmount}" title="#{bundle.CreateLoanapllicationTitle_approvedAmount}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_lastTurnover}" for="lastTurnover" />
+                        <p:inputText id="lastTurnover" value="#{loanapllicationController.selected.lastTurnover}" title="#{bundle.CreateLoanapllicationTitle_lastTurnover}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_businessNature}" for="businessNature" />
+                        <p:inputText id="businessNature" value="#{loanapllicationController.selected.businessNature}" title="#{bundle.CreateLoanapllicationTitle_businessNature}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_businessYr}" for="businessYr" />
+                        <p:inputText id="businessYr" value="#{loanapllicationController.selected.businessYr}" title="#{bundle.CreateLoanapllicationTitle_businessYr}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_tenancyInvoice}" for="tenancyInvoice" />
+                        <p:inputText id="tenancyInvoice" value="#{loanapllicationController.selected.tenancyInvoice}" title="#{bundle.CreateLoanapllicationTitle_tenancyInvoice}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_landlordName}" for="landlordName" />
+                        <p:inputText id="landlordName" value="#{loanapllicationController.selected.landlordName}" title="#{bundle.CreateLoanapllicationTitle_landlordName}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_propertyAddress}" for="propertyAddress" />
+                        <p:inputText id="propertyAddress" value="#{loanapllicationController.selected.propertyAddress}" title="#{bundle.CreateLoanapllicationTitle_propertyAddress}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_landlordBankName}" for="landlordBankName" />
+                        <p:inputText id="landlordBankName" value="#{loanapllicationController.selected.landlordBankName}" title="#{bundle.CreateLoanapllicationTitle_landlordBankName}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_landlordAccountNo}" for="landlordAccountNo" />
+                        <p:inputText id="landlordAccountNo" value="#{loanapllicationController.selected.landlordAccountNo}" title="#{bundle.CreateLoanapllicationTitle_landlordAccountNo}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_childName}" for="childName" />
+                        <p:inputText id="childName" value="#{loanapllicationController.selected.childName}" title="#{bundle.CreateLoanapllicationTitle_childName}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_childSchool}" for="childSchool" />
+                        <p:inputText id="childSchool" value="#{loanapllicationController.selected.childSchool}" title="#{bundle.CreateLoanapllicationTitle_childSchool}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_schoolBankName}" for="schoolBankName" />
+                        <p:inputText id="schoolBankName" value="#{loanapllicationController.selected.schoolBankName}" title="#{bundle.CreateLoanapllicationTitle_schoolBankName}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_schoolAccountNo}" for="schoolAccountNo" />
+                        <p:inputText id="schoolAccountNo" value="#{loanapllicationController.selected.schoolAccountNo}" title="#{bundle.CreateLoanapllicationTitle_schoolAccountNo}" />
+                        <p:outputLabel value="#{bundle.CreateLoanapllicationLabel_schoolfeeInvoice}" for="schoolfeeInvoice" />
+                        <p:inputText id="schoolfeeInvoice" value="#{loanapllicationController.selected.schoolfeeInvoice}" title="#{bundle.CreateLoanapllicationTitle_schoolfeeInvoice}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{loanapllicationController.create}" value="#{bundle.Save}" update="display,:LoanapllicationListForm:datalist,:growl" oncomplete="handleSubmit(args,'LoanapllicationCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="LoanapllicationCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
